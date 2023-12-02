@@ -45,24 +45,27 @@ namespace DB_Connections
                 koneksi.Close();
 
                 dataGridView1.DataSource = ds.Tables[0];
-                dataGridView1.Columns[0].Width = 100;
-                dataGridView1.Columns[0].HeaderText = "Food Supply";
-                dataGridView1.Columns[1].Width = 50;
-                dataGridView1.Columns[1].HeaderText = "Stock";
-                dataGridView1.Columns[2].Width = 80;
-                dataGridView1.Columns[2].HeaderText = "Stock Entry Date";
-                dataGridView1.Columns[3].Width = 50;
-                dataGridView1.Columns[3].HeaderText = "Used Stock";
-                dataGridView1.Columns[4].Width = 80;
-                dataGridView1.Columns[4].HeaderText = "Expiry Date";
+                dataGridView1.Columns[0].Width = 80;
+                dataGridView1.Columns[0].HeaderText = "Stock ID";
+                dataGridView1.Columns[1].Width = 100;
+                dataGridView1.Columns[1].HeaderText = "Food Supply";
+                dataGridView1.Columns[2].Width = 50;
+                dataGridView1.Columns[2].HeaderText = "Stock";
+                dataGridView1.Columns[3].Width = 80;
+                dataGridView1.Columns[3].HeaderText = "Stock Entry Date";
+                dataGridView1.Columns[4].Width = 50;
+                dataGridView1.Columns[4].HeaderText = "Used Stock";
+                dataGridView1.Columns[5].Width = 80;
+                dataGridView1.Columns[5].HeaderText = "Expiry Date";
 
                 textStockID.Clear();
-                textUsername.Clear();
+                textFoodSupply.Clear();
                 textStock.Clear();
                 textUsedStock.Clear();
+                textExpiryDate.Clear();
+                textStockDate.Clear();  
 
-                UpdateButton.Enabled = false;
-                SearchButton.Enabled = false;
+               
 
                 
             }
@@ -129,7 +132,7 @@ namespace DB_Connections
             try
             {
                 koneksi.Open();
-                query = string.Format("select * from data_makanan where stockID ='{0}'");
+                query = string.Format("select * from data_makanan where stockID ='{0}'", textStockID.Text);
                 perintah = new MySqlCommand(query, koneksi);
                 adapter = new MySqlDataAdapter(perintah);
                 perintah.ExecuteNonQuery();
@@ -140,14 +143,15 @@ namespace DB_Connections
                 {
                     foreach (DataRow kolom in ds.Tables[0].Rows)
                     {
-                        textUsername.Text = kolom["Food Supply"].ToString();
-                        textStock.Text = kolom["Stock Supply"].ToString();
-                        DTPExpiryDate.Text = kolom["Stock Entry Date"].ToString();
-                        textUsedStock.Text = kolom["Used Stock"].ToString();
-                        DTPStockInDate.Text = kolom["Expiry Date"].ToString();
+                        textFoodSupply.Text = kolom["bahan_makanan"].ToString();
+                        textStock.Text = kolom["stok_persediaan"].ToString();
+                        textStockDate.Text = kolom["tanggal_stok_masuk"].ToString();
+                        textUsedStock.Text = kolom["stok_terpakai"].ToString();
+                        textExpiryDate.Text = kolom["tanggal_kadaluarsa"].ToString();
 
-                        button1_Click_1.Enabled = true;
-                        
+                        UpdateButton.Enabled = true;
+                        DeleteButton.Enabled = true;
+
                     }
                 }
                 else
@@ -219,7 +223,7 @@ namespace DB_Connections
             try
             {
                 koneksi.Open();
-                query = string.Format("update  set bahan_makanan = '{0}', stok_persediaan = '{1}', tanggal_stok_masuk = '{2}', stok_terpakai = '{3}' where id_pengguna ='{4}'", TxtUsername.Text, TxtPassword.Text, CBLevel.Text, CBStatus.Text, TxtIdPengguna.Text);
+                query = string.Format("update data_makanan set bahan_makanan = '{0}', stok_persediaan = '{1}', tanggal_stok_masuk = '{2}', stok_terpakai = '{3}', tanggal_kadaluarsa = '{4}', where StockID ='{5}'", textFoodSupply.Text, textStock.Text, textStockDate.Text, textUsedStock.Text, textExpiryDate.Text, textStockID);
                 perintah = new MySqlCommand(query, koneksi);
                 adapter = new MySqlDataAdapter(perintah);
                 perintah.ExecuteNonQuery();
@@ -238,6 +242,79 @@ namespace DB_Connections
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+
+                query = string.Format("insert into data_makanan (bahan_makanan, stok_persediaan, tanggal_stok_masuk, stok_terpakai, tanggal_kadaluarsa) values ('{0}', '{1}', '{2}', '{3}', '{4}')", textFoodSupply.Text, textStock.Text, textStockDate.Text, textUsedStock.Text, textExpiryDate.Text);
+                koneksi.Open();
+                perintah = new MySqlCommand(query, koneksi);
+                adapter = new MySqlDataAdapter(perintah);
+                int res = perintah.ExecuteNonQuery();
+                koneksi.Close();
+                if (res == 1)
+                {
+                    MessageBox.Show("Insert data berhasil");
+                    Form1_Load(null, null);
+                }
+                else
+                {
+                    MessageBox.Show("Insert data gagal");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                koneksi.Open();
+                query = string.Format("delete from data_makanan where StockID ='{0}'", textStockID.Text);
+                perintah = new MySqlCommand(query, koneksi);
+                adapter = new MySqlDataAdapter(perintah);
+                perintah.ExecuteNonQuery();
+                ds.Clear();
+                adapter.Fill(ds);
+                koneksi.Close();
+
+                Form1_Load(null, null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form1_Load(null, null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backbutton_Click(object sender, EventArgs e)
+        {
+            Admin frm = new Admin();
+            frm.Show();
+
+            this.Hide();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

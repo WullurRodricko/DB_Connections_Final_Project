@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DB_Connections
 {
-    public partial class Form3 : Form
+    public partial class StudentPage : Form
     {
-        public Form3()
+        public StudentPage()
         {
             InitializeComponent();
         }
@@ -45,6 +45,30 @@ namespace DB_Connections
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            Login frm = new Login();
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StudentMenu frm = new StudentMenu();
+            frm.Show();
+
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AboutUs frm = new AboutUs();
+            frm.Show();
+
+            this.Hide();
         }
     }
 }

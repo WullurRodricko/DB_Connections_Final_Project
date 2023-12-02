@@ -28,21 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textUsername = new System.Windows.Forms.TextBox();
+            this.textFoodSupply = new System.Windows.Forms.TextBox();
             this.textStock = new System.Windows.Forms.TextBox();
             this.SearchButton = new System.Windows.Forms.Button();
-            this.DTPExpiryDate = new System.Windows.Forms.DateTimePicker();
-            this.DTPStockInDate = new System.Windows.Forms.DateTimePicker();
             this.textUsedStock = new System.Windows.Forms.TextBox();
             this.UpdateButton = new System.Windows.Forms.Button();
             this.textStockID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
+            this.textStockDate = new System.Windows.Forms.TextBox();
+            this.textExpiryDate = new System.Windows.Forms.TextBox();
+            this.backbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,13 +126,13 @@
             this.label5.Text = "Tanggal Kadaluwarsa";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // textUsername
+            // textFoodSupply
             // 
-            this.textUsername.Location = new System.Drawing.Point(248, 77);
-            this.textUsername.Name = "textUsername";
-            this.textUsername.Size = new System.Drawing.Size(173, 22);
-            this.textUsername.TabIndex = 6;
-            this.textUsername.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textFoodSupply.Location = new System.Drawing.Point(248, 77);
+            this.textFoodSupply.Name = "textFoodSupply";
+            this.textFoodSupply.Size = new System.Drawing.Size(173, 22);
+            this.textFoodSupply.TabIndex = 6;
+            this.textFoodSupply.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textStock
             // 
@@ -139,30 +144,13 @@
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(653, 134);
+            this.SearchButton.Location = new System.Drawing.Point(653, 101);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(118, 51);
             this.SearchButton.TabIndex = 15;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // DTPExpiryDate
-            // 
-            this.DTPExpiryDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPExpiryDate.Location = new System.Drawing.Point(248, 191);
-            this.DTPExpiryDate.Name = "DTPExpiryDate";
-            this.DTPExpiryDate.Size = new System.Drawing.Size(95, 22);
-            this.DTPExpiryDate.TabIndex = 17;
-            this.DTPExpiryDate.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
-            // 
-            // DTPStockInDate
-            // 
-            this.DTPStockInDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPStockInDate.Location = new System.Drawing.Point(248, 133);
-            this.DTPStockInDate.Name = "DTPStockInDate";
-            this.DTPStockInDate.Size = new System.Drawing.Size(95, 22);
-            this.DTPStockInDate.TabIndex = 18;
             // 
             // textUsedStock
             // 
@@ -174,7 +162,7 @@
             // 
             // UpdateButton
             // 
-            this.UpdateButton.Location = new System.Drawing.Point(516, 134);
+            this.UpdateButton.Location = new System.Drawing.Point(516, 101);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(118, 51);
             this.UpdateButton.TabIndex = 20;
@@ -202,6 +190,63 @@
             this.label6.TabIndex = 22;
             this.label6.Text = "ID Makanan";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(516, 36);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 51);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(653, 36);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(118, 51);
+            this.DeleteButton.TabIndex = 24;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Location = new System.Drawing.Point(653, 176);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(118, 36);
+            this.ClearButton.TabIndex = 25;
+            this.ClearButton.Text = "Clear";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
+            // textStockDate
+            // 
+            this.textStockDate.Location = new System.Drawing.Point(248, 133);
+            this.textStockDate.Name = "textStockDate";
+            this.textStockDate.Size = new System.Drawing.Size(173, 22);
+            this.textStockDate.TabIndex = 26;
+            this.textStockDate.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
+            // 
+            // textExpiryDate
+            // 
+            this.textExpiryDate.Location = new System.Drawing.Point(248, 190);
+            this.textExpiryDate.Name = "textExpiryDate";
+            this.textExpiryDate.Size = new System.Drawing.Size(173, 22);
+            this.textExpiryDate.TabIndex = 27;
+            // 
+            // backbutton
+            // 
+            this.backbutton.BackColor = System.Drawing.Color.Maroon;
+            this.backbutton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.backbutton.Location = new System.Drawing.Point(516, 176);
+            this.backbutton.Name = "backbutton";
+            this.backbutton.Size = new System.Drawing.Size(118, 36);
+            this.backbutton.TabIndex = 28;
+            this.backbutton.Text = "Back To Menu";
+            this.backbutton.UseVisualStyleBackColor = false;
+            this.backbutton.Click += new System.EventHandler(this.backbutton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -209,23 +254,28 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::DB_Connections.Properties.Resources.unklab12;
             this.ClientSize = new System.Drawing.Size(800, 505);
+            this.Controls.Add(this.backbutton);
+            this.Controls.Add(this.textExpiryDate);
+            this.Controls.Add(this.textStockDate);
+            this.Controls.Add(this.ClearButton);
+            this.Controls.Add(this.DeleteButton);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textStockID);
             this.Controls.Add(this.UpdateButton);
             this.Controls.Add(this.textUsedStock);
-            this.Controls.Add(this.DTPStockInDate);
-            this.Controls.Add(this.DTPExpiryDate);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.textStock);
-            this.Controls.Add(this.textUsername);
+            this.Controls.Add(this.textFoodSupply);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "AdminForm";
+            this.Text = "Food Supply (Admin)";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -241,15 +291,19 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textUsername;
+        private System.Windows.Forms.TextBox textFoodSupply;
         private System.Windows.Forms.TextBox textStock;
         private System.Windows.Forms.Button SearchButton;
-        private System.Windows.Forms.DateTimePicker DTPExpiryDate;
-        private System.Windows.Forms.DateTimePicker DTPStockInDate;
         private System.Windows.Forms.TextBox textUsedStock;
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.TextBox textStockID;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.TextBox textStockDate;
+        private System.Windows.Forms.TextBox textExpiryDate;
+        private System.Windows.Forms.Button backbutton;
     }
 }
 

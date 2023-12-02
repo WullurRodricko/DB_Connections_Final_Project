@@ -63,6 +63,26 @@ namespace DB_Connections.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap about_us_2277857_1897344 {
+            get {
+                object obj = ResourceManager.GetObject("about-us-2277857-1897344", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap admin {
+            get {
+                object obj = ResourceManager.GetObject("admin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap depositphotos_185132844_stock_photo_empty_plate_fork_knife_white {
             get {
                 object obj = ResourceManager.GetObject("depositphotos_185132844-stock-photo-empty-plate-fork-knife-white", resourceCulture);
@@ -73,9 +93,59 @@ namespace DB_Connections.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EIA {
+            get {
+                object obj = ResourceManager.GetObject("EIA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap layoutabout {
+            get {
+                object obj = ResourceManager.GetObject("layoutabout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap layoutLOGOUT {
+            get {
+                object obj = ResourceManager.GetObject("layoutLOGOUT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap layoutMENU {
+            get {
+                object obj = ResourceManager.GetObject("layoutMENU", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LOGO_UNIVERSITAS_KLABAT {
             get {
                 object obj = ResourceManager.GetObject("LOGO_UNIVERSITAS_KLABAT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap piring_gelap {
+            get {
+                object obj = ResourceManager.GetObject("piring gelap", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +176,16 @@ namespace DB_Connections.Properties {
         internal static System.Drawing.Bitmap unklab12 {
             get {
                 object obj = ResourceManager.GetObject("unklab12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap unklab2 {
+            get {
+                object obj = ResourceManager.GetObject("unklab2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
